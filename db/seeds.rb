@@ -30,10 +30,10 @@ questions = Question.create([
 ])
 
 answers = Answer.create([
-  { body: "Тэг", correct: 1, question_id: questions[0].id },
-  { body: "Метод", correct: 0, question_id: questions[0].id },
-  { body: "Класс", correct: 0, question_id: questions[0].id },
-  { body: "Модуль", correct: 0, question_id: questions[0].id },
+  { body: "Тэг", correct: true, question_id: questions[0].id },
+  { body: "Метод", correct: false, question_id: questions[0].id },
+  { body: "Класс", correct: false, question_id: questions[0].id },
+  { body: "Модуль", correct: false, question_id: questions[0].id },
 ])
 
 answers
