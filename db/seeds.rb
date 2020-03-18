@@ -14,13 +14,15 @@ categories = Category.create([
   { title: "Mobile" }
 ])
 
+admin = User.create(username: "admin", password: "3213123")
+user = User.create(username: "dadada", password: "3213123")
 
-tests = Test.create([
-  { title: "Основы Ruby", level: 1, category_id: categories[1].id },
-  { title: "HTML", level: 0, category_id: categories[0].id },
-  { title: "CSS", level: 0, category_id: categories[0].id },
-  { title: "Основы Rails", level: 1, category_id: categories[1].id },
-  { title: "Продвинутый Rails", level: 2, category_id: categories[1].id },
+tests = user.tests.create!([
+  { title: "Основы Ruby", level: 1, category_id: categories[1].id, author_id: admin.id },
+  { title: "HTML", level: 0, category_id: categories[0].id, author_id: admin.id },
+  { title: "CSS", level: 0, category_id: categories[0].id, author_id: admin.id },
+  { title: "Основы Rails", level: 1, category_id: categories[1].id, author_id: admin.id },
+  { title: "Продвинутый Rails", level: 2, category_id: categories[1].id, author_id: admin.id },
 
 ])
 
@@ -35,5 +37,3 @@ answers = Answer.create([
   { body: "Класс", correct: false, question_id: questions[0].id },
   { body: "Модуль", correct: false, question_id: questions[0].id },
 ])
-
-answers
