@@ -4,7 +4,7 @@ class CreateTests < ActiveRecord::Migration[6.0]
       t.string :title
       t.integer :level
       t.integer :author_id
-      t.belongs_to :category
+      t.belongs_to :category, foreign_key: true
 
       t.timestamps
     end
