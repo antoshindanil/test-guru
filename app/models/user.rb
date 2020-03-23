@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :tests_users
   has_many :tests, through: :tests_users
 
+  validates :email, presence: true
+
   def passed_tests (level)
     tests.where(level: level)
   end
