@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_question, only: %i[create show destroy]
+  before_action :find_question, only: %i[show destroy]
   before_action :find_test, only: %i[index new create show]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
@@ -15,8 +15,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @tests.questions.new(question_params)
-    render plain: @question.inspect
+    @test.questions.create(question_params)
+    render json: @test.questions
   end
 
   def destroy
