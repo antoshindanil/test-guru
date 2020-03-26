@@ -11,12 +11,16 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render json: show_question
+    render json: @test.questions.find(params[:id])
   end
 
   def create
-    @test.questions.create(question_params)
-    render json: @test.questions
+    @question = @test.questions.new(question_params)
+    if @question.save
+      render json: @test.questions
+    else
+      render plain: "Question not created"
+    end
   end
 
   def destroy
@@ -25,7 +29,6 @@ class QuestionsController < ApplicationController
   end
 
   private
-
   def question_params
     params.require(:question).permit(:body)
   end
@@ -34,9 +37,6 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  def show_question
-    @test.questions.find(params[:id])
-  end
 
   def find_test
     @test = Test.find(params[:test_id])
