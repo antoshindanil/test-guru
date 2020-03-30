@@ -1,31 +1,42 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_question, only: %i[show destroy]
-  before_action :find_test, only: %i[index new create show]
+  before_action :find_question, only: %i[show destroy edit update]
+  before_action :find_test, only: %i[index new create]
+
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    render json: @test.questions
+  def show
   end
 
-  def show
-    render json: @test.questions.find(params[:id])
+  def new
+    @question = @test.questions.new
   end
 
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      render json: @test.questions
+      redirect_to @question
     else
-      render plain: "Question not created"
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
     end
   end
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.tests)
+    redirect_to test_path(@question.test)
   end
 
   private
