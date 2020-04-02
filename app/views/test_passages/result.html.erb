@@ -1,0 +1,7 @@
+<% if @test_passage.success? %>
+  <%= colored_result("green", "passed") %>
+<% else %>
+  <%= colored_result("red", "failed") %>
+<% end %>
+
+<p><%= link_to 'Back to tests', tests_path %></p>
