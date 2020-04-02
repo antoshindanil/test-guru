@@ -1,16 +1,13 @@
 # frozen_string_literal: true
 
 module TestPassagesHelper
-  def colored_percent(test_passage)
-    color = test_passage.success? ? "green" : "red"
-    "<span style='color: #{color}'>#{format('%d', test_passage.success_percent)}</span>".html_safe
-  end
-
-  def test_complete_message(test_passage)
-    if test_passage.success?
-      "Test passed!"
-    else
-      "Test failed!"
-    end
+  def colored_result(color, word)
+    "<h1 style='color: #{color}'>
+      Test #{@test_passage.test.title} #{word}
+    </h1>
+    <br>
+    <b>
+      #{@test_passage.current_questions_percent.to_i} % correct questions
+    </b>".html_safe
   end
 end

@@ -1,8 +1,7 @@
-<h1>Test <%= @test_passage.test.title %> finished!</h1>
-
-<h2>
-  Correct answers: <%= colored_percent(@test_passage) %>%
-  <%= test_complete_message(@test_passage) %>
-</h2>
+<% if @test_passage.success? %>
+  <%= colored_result("green", "passed") %>
+<% else %>
+  <%= colored_result("red", "failed") %>
+<% end %>
 
 <p><%= link_to 'Back to tests', tests_path %></p>
