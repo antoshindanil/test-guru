@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Answer < ApplicationRecord
   belongs_to :question
 
@@ -7,8 +9,7 @@ class Answer < ApplicationRecord
   validate :validate_count, on: :create
 
   private
-
-  def validate_count
-    errors.add(:base, 'More than 4 answers') if question.answers.size >= 4
-  end
+    def validate_count
+      errors.add(:base, "More than 4 answers") if question.answers.size > 4
+    end
 end
