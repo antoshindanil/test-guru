@@ -14,8 +14,8 @@ categories = Category.create([
   { title: "Mobile" }
 ])
 
-admin = User.create(username: "admin", password: "3213123", email: "123@asd.123")
-user = User.create(username: "dadada", password: "3213123", email: "321@asd.123")
+user = User.create(password: "3213123", email: "123@asd.123")
+admin = User.create(password: "123123", email: "admin@testguru.com", type: "Admin", first_name: "Danil", last_name: "Antoshin")
 
 tests = user.tests.create!([
   { title: "Основы Ruby", level: 1, category_id: categories[1].id, author_id: admin.id },

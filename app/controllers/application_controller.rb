@@ -1,26 +1,21 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-
   before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :current_user,
-                :logged_in?
-
-  private
-
-  def authenticate_user!
-    unless current_user
-      cookies[:target_url] = request.fullpath
-      redirect_to login_path, alert: "Are you Guru?"
+  protected
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name])
     end
 
-    cookies[:email] = current_user&.email
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    current_user.present?
-  end
+    def after_sign_in_path_for(resource)
+      if resource.admin?
+        flash[:notice] = "Hello, #{current_user.first_name}!"
+        admin_tests_path
+      else
+        flash[:notice] = "Hello, #{current_user.email}!"
+        super
+      end
+    end
 end
