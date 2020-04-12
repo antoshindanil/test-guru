@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
 protected
   def default_url_options
-    { lang: I18n.locale }
+    { lang: I18n.default_locale == I18n.locale ? nil : I18n.locale }
   end
 
   def configure_permitted_parameters
