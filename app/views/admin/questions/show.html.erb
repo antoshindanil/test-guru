@@ -1,12 +1,22 @@
-<h1> <%= @question.body %> </h1>
-<br>
-<h2>Answers</h2>
-<%= link_to "New answer", new_admin_question_answer_path(@question) %>
-
-<ol>
-  <%= render @question.answers %>
-</ol>
-
-<%= link_to "Go back", admin_test_path(@question.test) %> |
-<%= link_to "Edit", edit_admin_question_path %>
-
+<div class="row mx-0">
+  <div class="container mt-5">
+    <h1 class="mb-4"> <%= @question.body %> </h1>
+    <%= link_to "New answer", new_admin_question_answer_path(@question), class: "btn btn-primary mb-3" %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="col-1">Number</th>
+          <th>Answer</th>
+          <th class="text-center col-3" colspan="3" ><%= t('.actions') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @question.answers %>
+      </tbody>
+    </table>
+    <div class="mx-autos mt-4">
+      <%= link_to "Go back", admin_test_path(@question.test), class: "btn btn-secondary" %>
+      <%= link_to "Edit", edit_admin_question_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
