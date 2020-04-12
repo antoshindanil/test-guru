@@ -1,6 +1,6 @@
 <h1> <%= @test.title %> </h1>
 
-<%= link_to "Create new question", new_admin_test_question_path(@test)  %>
+<%= link_to t('.new_question'), new_admin_test_question_path(@test)  %>
 
 <table>
   <tr>
@@ -14,5 +14,5 @@
 
 <br>
 
-<%= link_to "Go back", admin_tests_path %> |
-<%= link_to "Edit this test", edit_admin_test_path(@test) %>
+<%= link_to t('.back'), admin_tests_path %> |
+<%= link_to t('.edit'), edit_admin_test_path(@test) %>
