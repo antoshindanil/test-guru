@@ -1,13 +1,15 @@
-<%= form_with(model: question.new_record? ? [:admin, question.test, question] : [:admin, question], local: true) do |form| %>
-  <%= render "shared/errors", resource: question %>
-
-  <p>
-    <%= form.label :body %>
-    <%= form.text_field :body, id: :question_body %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: question.new_record? ? [:admin, question.test, question] : [:admin, question], local: true) do |form| %>
+      <%= render "shared/errors", resource: question %>
+      <div class="form-grop">
+        <%= form.label :body %>
+        <%= form.text_field :body, id: :question_body, class: "form-control" %>
+      </div>
+      <div class="actions">
+        <%= form.submit "Save", class: "btn btn-primary mt-4" %>
+      </div>
+      
+    <% end %>
+  </div>
+</div>
