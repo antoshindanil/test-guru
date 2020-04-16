@@ -1,0 +1,19 @@
+<div class="row mx-0">
+  <div class="container mt-5">
+    <h1 class="mb-4">Gists</h1>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><%= t('.question') %></th>
+          <th>Gist URL</th>
+          <th><%= t('.user') %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= render @gists %>
+      </tbody>
+    </table>
+  </div>
+</div>
