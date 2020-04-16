@@ -14,9 +14,7 @@ class GistQuestionService
     @client.last_response.status == 201 || 200
   end
 
-
   private
-
   def gist_params
     {
       description: I18n.t('gist_question_service.description', title: @test.title),
