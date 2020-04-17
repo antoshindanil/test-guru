@@ -1,20 +1,20 @@
 <p> <%= t(".passing", test: @test_passage.test.title) %> </p>
 
 <h1>
-  <%= @test_passage .current_question.body %>
+  <%= @test_passage.current_question.body %>
 </h1>
 
 <p><%= t(".question_of", one: @test_passage.current_question_number,
-       two: @test_passage.test.questions.size)%></p>
+         two: @test_passage.test.questions.size)%></p>
 
 
 <%= form_with(url: test_passage_path(@test_passage), local: true, method: :put) do |form| %>
-<%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-<p>
-  <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-  <%= b.label %>
-</p>
-<% end %>
-
-<%= form.submit %>
+  <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+    <p>
+      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+      <%= b.label %>
+    </p>
+  <% end %>
+  <%= link_to "Gist question", gist_test_passage_path(@test_passage), method: :post %>
+  <%= form.submit %>
 <% end %>
