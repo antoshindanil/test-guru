@@ -13,6 +13,7 @@ function passwordConfirmation() {
         warningText = this.parentNode.querySelector('small')
         warningText.classList.add('hide')
         this.classList.remove('border-danger')
+        this.classList.remove('border-success')
     } else if (this.value === passwordInput.value) {
         warningText = this.parentNode.querySelector('small')
 
