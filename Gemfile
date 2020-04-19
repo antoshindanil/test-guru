@@ -34,9 +34,9 @@ gem 'devise', '~> 4.0'
 # I18n
 gem 'rails-i18n', '~>6.0.0'
 
-# Bootstrap
-gem 'jquery-rails'
+# UI gems
 gem 'bootstrap', '~> 4.4.1'
+gem 'octicons_helper'
 
 # Networking
 gem 'faraday'
