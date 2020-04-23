@@ -1,3 +1,7 @@
+<div class="progress">
+  <%= content_tag :div, class: "progress-bar", role: "progressbar", data: { width: (@test_passage.current_question_number - 1).to_f / @test_passage.test.questions.size * 100 } do %>
+  <% end %>
+</div>
 <p> <%= t(".passing", test: @test_passage.test.title) %> </p>
 
 <h1>
