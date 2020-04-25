@@ -1,8 +1,8 @@
 <div class="row mx-0">
   <div class="container mt-5">
-    <h1 class="mb-2"> <%= t("tests.index.header") %> </h1>
+    <h1 class="mb-4"> <%= t("tests.index.header") %> </h1>
     <%= render "shared/errors", resource: @test %>
-    <%= link_to "Create new test",  new_admin_test_path(@test), class: "btn btn-primary mb-4"%>
+    <%= link_to t(".create_btn"),  new_admin_test_path(@test), class: "btn btn-primary mb-3"%>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -15,7 +15,7 @@
           <th><%= t('.category') %></th>
           <th><%= t('.author') %></th>
           <th><%= t('.count') %></th>
-          <th class="text-center col-4" colspan="3" ><%= t('.actions') %></th>
+          <th class="text-center col-3" colspan="3" ><%= t('.actions') %></th>
         </tr>
       </thead>
       <tbody>

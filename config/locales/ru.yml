@@ -1,6 +1,20 @@
 ru:
   hello: "Привет мир"
 
+  main:
+    name: "Антошин Даниил"
+    thinknetica: "Учебный проект в онлайн-школе Thinknetica"
+
+  buttons:
+    back: "Назад"
+    edit: "Редактировать"
+    delete: "Удалить"
+    send: "Отправить"
+    new: "Создать"
+    show: "Показать"
+    save: "Сохранить"
+    ok: "Ок"
+
   helpers:
     select:
       prompt: "Выберите"
@@ -22,6 +36,9 @@ ru:
       logout: "Выйти"
       registration: "Зарегистрироваться"
       login: "Войти"
+      gist: "Гисты"
+      admin: "Панель админа"
+      feedbacks: "Отзывы"
 
   shared:
     errors:
@@ -30,25 +47,17 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+    footer:
+      feedback: "Обратная связь"
 
   gist_question_service:
     description: "Вопросы по тесту %{title} из TestGuru"
 
-  devise:
-    shared:
-      links:
-        login: "Войти"
-        signup: "Зарегистрироваться"
-        forgot: "Забыли пароль?"
-        confirmation: "Не получили подтверждение инструкции?"
-        unlock: "Не получили инструкции по разблокировке?"
-        login_via_omni: "Войти через %{provider}"
-    sessions:
-      create:
-        after_sign_in_hello: "Привет, %{name}"
-      new:
-        header: "Войдите в систему"
-        login: "Войти"
+  feedback:
+    form:
+      body: "Введите текст вашего сообщения:"
+    message:
+      header: "Форма обратной связи"
 
   tests:
     test:
@@ -66,10 +75,20 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} завершен!"
-    show:
+      passed_header: "Тест %{test} завершен!"
+      passed_text: "Поздравляю, вы успешно прошли тест!"
+      correct: "Вы успешно ответили на %{percent}% вопросов"
+      btn: "Назад к тестам"
+    test_passage:
       passing: "Прохождение теста %{test}"
       question_of: "Вопрос %{one} из %{two}"
+      gist_question: "Сохранить Gist"
+      next_question: "Ответить"
+      choice: "Выберете один или несколько правильных ответов:"
+    error_question:
+      header_error: "Тест пустой"
+      text_error: "К нашему сожалению данный тест на данный момент не заполнен."
+      btn: "Назад к тестам"
     gist:
       success: "Gist успешно сохранен!"
       alert: "Во время сохранения gist произошла ошибка"
@@ -78,10 +97,41 @@ ru:
     nav:
       welcome_html: 'Добро пожаловать, <b class="nav-admin user-email">%{email}</b> Гуру.'
       logout: "Выйти"
+    answers:
+       answer_card:
+          answer: "Ответ:"
+          correct: "Корректный:"
+          correct_yes: "Да"
+          correct_no: "Нет"
+       answer:
+          sure: "Вы уверены, что хотите удалить ответ?"
+       show:
+          back: "Назад"
+          question: "Название вопроса:"
+       new:
+          back: "Назад"
+          new_answer: "Новый ответ"
+       edit:
+          edit_answer: "Редактировать ответ"
+       form:
+          body: "Содержимое ответа:"
+          correct: "Корректный"
     questions:
       index:
         header: "Вопросы"
         new_question: "Новый вопрос"
+      show:
+        new_answer: "Новый ответ"
+        number: "Номер"
+        answer: "Ответ"
+        actions: "Действия"
+      form:
+        body: "Название вопроса:"
+      new:
+        header: "Создать новый вопрос"
+      edit:
+        header: "Редактировать вопрос"
+        
     tests:
       edit:
         show: "Показать"
@@ -91,12 +141,10 @@ ru:
         back: "Назад"
         header: "Новый тест"
       show:
-        category: "Категория"
-        title: "Название"
-        level: "Уровень"
-        author: "Автор"
-        edit: "Редактировать"
-        back: "Назад"
+        question: "Вопрос"
+        actions: "Действия"
+        new_question: "Новый вопрос"
+        
       test:
         show: "Показать"
         edit: "Редактировать"
@@ -111,7 +159,11 @@ ru:
         actions: "Действия"
         count: "Вопросов"
         questions: "Вопросы"
-        new_test: "Добавить тест"
+        create_btn: "Новый тест"
+      form:
+        
+      question:
+        sure: "Вы уверены, что хотите удалить данный вопрос?"
       create:
         success: "Тест успешно создан."
       update:
@@ -122,6 +174,7 @@ ru:
       index:
         question: "Вопрос"
         user: "Пользователь"
+        header: "Все Gist"
 
   tests_mailer:
     completed_test:

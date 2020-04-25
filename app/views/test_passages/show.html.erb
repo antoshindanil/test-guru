@@ -1,7 +1,10 @@
-<% if @test_passage.current_question %>
-<%= render "progress_bar" %>
-<%= render "test_passage" %>
-<% else %>
-<h1>К сожалению данный тест не содержит вопросов </h1>
-<%= link_to "Go back", tests_path(@test) %>
-<% end %>
+<div class="row mx-0">
+    <div class="container mt-5">
+    <% if @test_passage.current_question %>
+        <%= render "progress_bar" %>
+        <%= render "test_passage" %>
+    <% else %>
+        <%= render "error_question" %>
+    <% end %>    
+  </div>
+</div>

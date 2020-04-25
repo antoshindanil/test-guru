@@ -1,17 +1,18 @@
-<%= form_with(model: answer.new_record? ? [:admin, answer.question, answer] : [:admin, answer], local: true) do |form| %>
-  <%= render "shared/errors", resource: answer %>
-
-  <p>
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :answer_body, rows: 7, cols: 60 %>
-  </p>
-
-  <p>
-    <%= form.label :correct %>:
-    <%= form.check_box :correct, id: :answer_correct %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: answer.new_record? ? [:admin, answer.question, answer] : [:admin, answer], local: true) do |form| %>
+      <%= render "shared/errors", resource: answer %>
+      <div class="form-group">
+        <%= form.label :body, t(".body") %>
+        <%= form.text_area :body, id: :answer_body, rows: 7, cols: 60, class: "form-control" %>
+      </div>
+      <div class="custom-control custom-switch mb-4">
+        <%= form.check_box :correct, id: :answer_correct, class: "custom-control-input" %>
+        <%= form.label :correct, t(".correct"), class: "custom-control-label" %>
+      </div>
+      <div class="actions">
+        <%= form.submit t("buttons.save"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

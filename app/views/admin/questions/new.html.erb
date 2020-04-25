@@ -1,9 +1,11 @@
 <div class="row justify-content-center my-5 mx-0">
-  <div class="col col-md-6">
-    <h1 class="mb-4"> <%= question_header(@question) %> </h1>
-    <%= render 'form', question: @question %>
-    <div class="mx-autos mt-4">
-        <%= link_to 'Back', admin_test_path(@question.test), class: "btn btn-secondary" %>
+  <div class="container">
+    <div class="col col-md-12">
+      <h1 class="mb-4"> <%= t(".header") %> </h1>
+      <%= render 'form', question: @question %>
+      <div class="mx-autos mt-4">
+        <%= link_to t("buttons.back"), admin_test_path(@question.test), class: "btn btn-secondary" %>
+      </div>
     </div>
   </div>
 </div>

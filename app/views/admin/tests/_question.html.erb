@@ -1,13 +1,12 @@
 <% @test.questions.each do |question| %>
   <tr>
     <td> <%=  question.body %> </td>
-    <td> <%= link_to "Show", admin_question_path(question), class: "btn btn-secondary" %> </td>
-    <td> <%= link_to "Edit", edit_admin_question_path(question), class: "btn btn-secondary" %> </td>
-    <td> <%= link_to "Delete",
+    <td> <%= link_to t("buttons.show"), admin_question_path(question) %> </td>
+    <td> <%= link_to t("buttons.edit"), edit_admin_question_path(question) %> </td>
+    <td> <%= link_to t("buttons.delete"),
       admin_question_path(question),
-      class: "btn btn-secondary",
       method: :delete,
-      data: { confirm: "Are you sure?" }
+      data: { confirm: t(".sure") }
       %> </td>
   </tr>
 <% end %>
