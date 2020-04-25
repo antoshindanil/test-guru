@@ -1,10 +1,12 @@
 <footer class="footer-lower mb-auto py-3 border-top bg-light">
   <div class="container ">
-    <div class="d-flex justify-content-between">
-      <p class="footer-copyright float-left"><%= current_year %></p>
-      <p>Antoshin Daniil </p>
-      <%= github_link("antoshindanil", "test-guru") %>
-      <%= link_to "Учебный проект в онлайн-школе Thinknetica", "http://www.thinknetica.com", class: "float-right" %>
+    <div class="col-12 pt-3">
+      <div class="d-flex justify-content-between">
+        <%= link_to t(".feedback"), feedback_message_path, class: "float-left" %>
+        <p> <%= t('main.name') %> </p>
+        <%= github_link("antoshindanil", "test-guru") %>
+        <%= link_to t("main.thinknetica"), "http://www.thinknetica.com", class: "float-right" %>
+      </div>
     </div>
   </div>
 </footer>

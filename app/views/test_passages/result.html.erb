@@ -1,7 +1,26 @@
-<% if @test_passage.success? %>
-  <%= colored_result("green", "passed") %>
-<% else %>
-  <%= colored_result("red", "failed") %>
-<% end %>
-
-<p><%= link_to 'Back to tests', tests_path %></p>
+<div class="row mx-0">
+  <div class="container mt-5">
+    
+      <% if @test_passage.success? %>
+        <h1>
+          <%= t(".passed_header", test: @test_passage.test.title) %>
+        </h1>
+        <p>
+          <%= t(".passed_text") %>
+        </p>
+      <% else %>
+        <h1>
+          <%= t(".failed_header", test: @test_passage.test.title) %>
+        </h1>
+        <p>
+          <%= t(".failed_text") %>
+        </p>
+      <% end %>
+    
+    <b>
+      <%= t(".correct", percent: @test_passage.current_questions_percent.to_i)  %>
+    </b>
+    <hr>
+    <%= link_to t('.btn'), tests_path, class: "btn btn-primary mt-3" %>
+  </div>
+</div>

@@ -15,7 +15,9 @@ class TestPassage < ApplicationRecord
   end
 
   def current_questions_percent
-    correct_questions.to_f / test.questions.size * 100
+    if correct_questions
+      correct_questions.to_f / test.questions.size * 100
+    end
   end
 
   def success?
@@ -27,7 +29,9 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_number
-    test.questions.index(current_question) + 1
+    if test.questions.index(current_question)
+      test.questions.index(current_question) + 1
+    end
   end
 
   def accept!(answer_ids)
@@ -36,24 +40,24 @@ class TestPassage < ApplicationRecord
   end
 
   private
-    def before_validation_set_first_question
-      self.current_question = test.questions.first
-    end
+  def before_validation_set_first_question
+    self.current_question = test.questions.first
+  end
 
-    def before_update_set_next_question
-      self.current_question = next_question
-    end
+  def before_update_set_next_question
+    self.current_question = next_question
+  end
 
-    def correct_answer?(answer_ids)
-      answer_ids ||= []
-      correct_answers.ids.sort == answer_ids.map(&:to_i).sort
-    end
+  def correct_answer?(answer_ids)
+    answer_ids ||= []
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+  end
 
-    def correct_answers
-      current_question.answers.correct
-    end
+  def correct_answers
+    current_question.answers.correct
+  end
 
-    def next_question
-      test.questions.order(:id).where("id > ?", current_question.id).first
-    end
+  def next_question
+    test.questions.order(:id).where("id > ?", current_question.id).first
+  end
 end

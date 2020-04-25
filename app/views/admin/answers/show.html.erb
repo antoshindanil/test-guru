@@ -1,17 +1,14 @@
-<h1>Question</h1>
-
-<p>
-  <%= @answer.question.body %>
-</p>
-
-<p>
-  <b>Answer:</b>
-  <%= @answer.body %>
-</p>
-
-<p>
-  <b>Correct:</b>
-  <%= @answer.correct %>
-</p>
-
-<%= link_to 'Back', admin_question_path(@answer.question), class: "btn btn-secondary" %>
+<div class="row justify-content-center my-5 mx-0">
+  <div class="container">
+    <div class="col-12 col-md-12">
+      <div>
+        <b class="text-secondary"> <%= t(".question") %> </b>
+        <h1 class="mb-3"> <%= @answer.body %> </h1>
+      </div>
+      <%= render "answer_card" %>
+      <div class="mx-autos mt-4">
+        <%= link_to t("buttons.back"), admin_question_path(@answer.question), class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>

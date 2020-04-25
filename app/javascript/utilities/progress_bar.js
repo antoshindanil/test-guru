@@ -12,5 +12,4 @@ function setWidth() {
     
     bar.style.width = `${ width }%`
     bar.textContent = `${ width }%`
-    console.log(bar)
 }

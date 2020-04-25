@@ -5,6 +5,6 @@
               data: { test_id: test.id } do |form| %>
 
     <%= form.text_field :title, id: :test_title, class: "form-control" %>
-    <%= form.submit "Edit", class: "btn btn-primary" %>
+    <%= form.submit t("buttons.ok"), class: "btn btn-primary" %>
 
 <% end %>

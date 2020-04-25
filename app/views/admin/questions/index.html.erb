@@ -1,11 +1,9 @@
 <h1> <%= t('.header') %> </h1>
-
 <table>
   <tr>
     <th>Question id</th>
     <th>Question body</th>
   </tr>
-
   <% @test.questions.each do |question| %>
     <tr>
       <td> <%= question.id %> </td>

@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-body my-1">
+    <div>
+      <b><%= t(".answer") %></b>
+      <p>
+        <%= @answer.body %>
+      </p>
+    </div>
+    <div>
+      <b><%= t(".correct") %></b>
+      <% if @answer.correct %>
+        <p>
+          <%= octicon "check", class: "text-success mt-1" %>
+          <%= t(".correct_yes") %>
+        </p>
+      <% else %>
+        <p>
+          <%= octicon "x", class: "text-danger mt-1" %>
+          <%= t(".correct_no") %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
