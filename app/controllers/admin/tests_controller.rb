@@ -19,7 +19,7 @@ class Admin::TestsController < Admin::BaseController
     @test = current_user.authors.new(test_params)
 
     if @test.save
-      redirect_to admin_test_path(@test), notice: t('.success')
+      redirect_to admin_test_path(@test), notice: t(".success")
     else
       render :new
     end
@@ -30,7 +30,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to admin_test_path(@test), notice: t('.success')
+      redirect_to admin_test_path(@test), notice: t(".success")
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update_inline
     if @test.update(test_params)
-      redirect_to admin_tests_path, notice: t('.success')
+      redirect_to admin_tests_path, notice: t(".success")
     else
       render :index
     end
@@ -46,11 +46,10 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
-    redirect_to admin_tests_path, notice: t('.success')
+    redirect_to admin_tests_path, notice: t(".success")
   end
 
 private
-
   def set_tests
     @tests = Test.all
   end
