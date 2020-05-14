@@ -31,7 +31,7 @@ questions = Question.create([
   { body: "Что такое module?", test_id: tests[1].id }
 ])
 
-answers = Answer.create([
+Answer.create([
   { body: "Тэг", correct: true, question_id: questions[0].id },
   { body: "Метод", correct: false, question_id: questions[0].id },
   { body: "Класс", correct: false, question_id: questions[0].id },

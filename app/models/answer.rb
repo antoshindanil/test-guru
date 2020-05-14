@@ -9,7 +9,7 @@ class Answer < ApplicationRecord
   validate :validate_count, on: :create
 
   private
-    def validate_count
+    def validate_counts
       errors.add(:base, "More than 4 answers") if question.answers.size > 4
     end
 end

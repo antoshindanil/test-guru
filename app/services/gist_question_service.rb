@@ -1,5 +1,6 @@
-class GistQuestionService
+# frozen_string_literal: true
 
+class GistQuestionService
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
@@ -15,20 +16,20 @@ class GistQuestionService
   end
 
   private
-  def gist_params
-    {
-      description: I18n.t('gist_question_service.description', title: @test.title),
-      files: {
-        "test-guru-question.txt" => {
-          content: gist_content
+    def gist_params
+      {
+        description: I18n.t("gist_question_service.description", title: @test.title),
+        files: {
+          "test-guru-question.txt" => {
+            content: gist_content
+          }
         }
       }
-    }
-  end
+    end
 
-  def gist_content
-    content = [@question.body]
-    content += @question.answers.pluck(:body)
-    content.join("\n")
-  end
+    def gist_content
+      content = [@question.body]
+      content += @question.answers.pluck(:body)
+      content.join("\n")
+    end
 end

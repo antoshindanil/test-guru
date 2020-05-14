@@ -1,5 +1,6 @@
-class GithubClient
+# frozen_string_literal: true
 
+class GithubClient
   ROOT_ENDPOINT = "https://api.github.com"
   ACCESS_TOKEN = ENV["GITHUB_TOKEN"]
 
@@ -16,8 +17,7 @@ class GithubClient
   end
 
   private
-
-  def setup_http_client
-    Faraday.new(url: ROOT_ENDPOINT)
-  end
+    def setup_http_client
+      Faraday.new(url: ROOT_ENDPOINT)
+    end
 end
