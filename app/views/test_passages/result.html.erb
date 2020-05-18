@@ -18,6 +18,14 @@
     <b>
       <%= t(".correct", percent: @test_passage.current_questions_percent.to_i)  %>
     </b>
+    <% if @test_passage.badges.present? %>
+      <p class="card-text"><%= t('.badges') %></p>
+      <p class="card-text">
+        <% @test_passage.badges.each do |badge| %>
+          <span class="badge badge-info"><%= badge.title %></span>
+        <% end %>
+      </p>
+    <% end %>
     <hr>
     <%= link_to t('.btn'), tests_path, class: "btn btn-primary mt-3" %>
   </div>

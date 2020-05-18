@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages, dependent: :destroy
   has_many :gists, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
+  has_many :test_passage_badges, through: :test_passages
+  has_many :badges, through: :test_passage_badges
 
   validates :email, presence: true,
     format: { with: /\A[^@\s]+@[^@\s]+\z/ },
@@ -28,5 +30,10 @@ class User < ApplicationRecord
 
   def admin?
     is_a?(Admin)
+  end
+
+  def passed_tests?(test_ids)
+    passed_test_ids = test_passages.where(test_id: test_ids).select(&:success?).map(&:test_id)
+    test_ids.uniq.sort == passed_test_ids.uniq.sort
   end
 end
