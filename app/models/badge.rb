@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class Badge < ApplicationRecord
-  has_many :test_passage_badges, dependent: :delete_all
-  has_many :test_passages, through: :test_passage_badges
   has_many :tests, through: :test_passages
-  has_many :users, through: :test_passages
+  has_many :user_badges
+  has_many :users, through: :user_badges
 
   validates :title, presence: true
   validates :rule, presence: true

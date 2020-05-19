@@ -13,8 +13,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages, dependent: :destroy
   has_many :gists, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
-  has_many :test_passage_badges, through: :test_passages
-  has_many :badges, through: :test_passage_badges
+  has_many :user_badges
+  has_many :badges, through: :user_badges
 
   validates :email, presence: true,
     format: { with: /\A[^@\s]+@[^@\s]+\z/ },

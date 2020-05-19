@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_205852) do
+ActiveRecord::Schema.define(version: 2020_05_19_225807) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,15 +63,6 @@ ActiveRecord::Schema.define(version: 2020_05_14_205852) do
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
-  create_table "test_passage_badges", force: :cascade do |t|
-    t.bigint "test_passage_id"
-    t.bigint "badge_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["badge_id"], name: "index_test_passage_badges_on_badge_id"
-    t.index ["test_passage_id"], name: "index_test_passage_badges_on_test_passage_id"
-  end
-
   create_table "test_passages", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "test_id"
@@ -94,6 +84,13 @@ ActiveRecord::Schema.define(version: 2020_05_14_205852) do
     t.bigint "category_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
+  end
+
+  create_table "user_badges", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "badge_id"
+    t.index ["badge_id"], name: "index_user_badges_on_badge_id"
+    t.index ["user_id"], name: "index_user_badges_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -127,10 +124,10 @@ ActiveRecord::Schema.define(version: 2020_05_14_205852) do
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"
-  add_foreign_key "test_passage_badges", "badges"
-  add_foreign_key "test_passage_badges", "test_passages"
   add_foreign_key "test_passages", "questions", column: "current_question_id"
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "categories"
+  add_foreign_key "user_badges", "badges"
+  add_foreign_key "user_badges", "users"
 end

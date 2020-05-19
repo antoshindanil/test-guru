@@ -6,7 +6,7 @@ class BadgesController < ApplicationController
   end
 
   def my
-    @badges = current_user.badges.group("id")
+    @badges = current_user.badges
     render :index
   end
 end
