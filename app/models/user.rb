@@ -33,7 +33,7 @@ class User < ApplicationRecord
   end
 
   def passed_tests?(test_ids)
-    passed_test_ids = test_passages.where(test_id: test_ids).select(&:success?).map(&:test_id)
+    passed_test_ids = test_passages.where(test_id: test_ids, passed: true)
     test_ids.uniq.sort == passed_test_ids.uniq.sort
   end
 end
