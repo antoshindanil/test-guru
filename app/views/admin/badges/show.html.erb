@@ -1,0 +1,15 @@
+<div class="row justify-content-center my-5 mx-0">
+  <div class="container">
+    <div class="col-12 col-md-12">
+      <div>
+        <b class="text-secondary"> <%= t(".badge") %> </b>
+        <h1 class="mb-3"> <%= @badge.title %> </h1>
+      </div>
+      <%= render "badge_card" %>
+      <div class="mx-autos mt-4">
+        <%= link_to t('buttons.back'), admin_badges_path, class: "btn btn-secondary" %>
+      <%= link_to t('buttons.edit'), edit_admin_badge_path(@badge), class: "ml-3" %>
+      </div>
+    </div>
+  </div>
+</div>

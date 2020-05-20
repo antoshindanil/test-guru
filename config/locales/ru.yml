@@ -100,24 +100,24 @@ ru:
       welcome_html: 'Добро пожаловать, <b class="nav-admin user-email">%{email}</b> Гуру.'
       logout: "Выйти"
     answers:
-       answer_card:
-          answer: "Ответ:"
-          correct: "Корректный:"
-          correct_yes: "Да"
-          correct_no: "Нет"
-       answer:
-          sure: "Вы уверены, что хотите удалить ответ?"
-       show:
-          back: "Назад"
-          question: "Название вопроса:"
-       new:
-          back: "Назад"
-          new_answer: "Новый ответ"
-       edit:
-          edit_answer: "Редактировать ответ"
-       form:
-          body: "Содержимое ответа:"
-          correct: "Корректный"
+      answer_card:
+        answer: "Ответ:"
+        correct: "Корректный:"
+        correct_yes: "Да"
+        correct_no: "Нет"
+      answer:
+        sure: "Вы уверены, что хотите удалить ответ?"
+      show:
+        back: "Назад"
+        question: "Название вопроса:"
+      new:
+        back: "Назад"
+        new_answer: "Новый ответ"
+      edit:
+        edit_answer: "Редактировать ответ"
+      form:
+        body: "Содержимое ответа:"
+        correct: "Корректный"
     questions:
       index:
         header: "Вопросы"
@@ -133,7 +133,7 @@ ru:
         header: "Создать новый вопрос"
       edit:
         header: "Редактировать вопрос"
-        
+
     tests:
       edit:
         show: "Показать"
@@ -146,7 +146,7 @@ ru:
         question: "Вопрос"
         actions: "Действия"
         new_question: "Новый вопрос"
-        
+
       test:
         show: "Показать"
         edit: "Редактировать"
@@ -163,7 +163,7 @@ ru:
         questions: "Вопросы"
         create_btn: "Новый тест"
       form:
-        
+
       question:
         sure: "Вы уверены, что хотите удалить данный вопрос?"
       create:
@@ -177,7 +177,31 @@ ru:
         question: "Вопрос"
         user: "Пользователь"
         header: "Все Gist"
+    badges:
+      create:
+        success: "Бэйдж был успешно создан."
+      update:
+        success: "Бэйдж был успешно отредактирован."
+      destroy:
+        success: "Бэйдж был успешно удален."
+      index:
+        header: "Бэйджи"
+        title: "Название"
+        image: "Картинка"
+        rule: "Правило"
+        new: "Добавить новый бэйдж"
+      new:
+        header: "Новый бэйдж"
+      edit:
+        header: "Редактирование бэйджа"
 
   tests_mailer:
     completed_test:
       subject: "Вы успешно прошли тест на TestGuru!"
+
+  badges:
+    index:
+      header: "Бэйджи"
+      title: "Название"
+      image: "Картинка"
+      rule: "Правило"

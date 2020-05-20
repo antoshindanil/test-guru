@@ -1,0 +1,9 @@
+<div class="row mx-0">
+  <div class="container mt-5">
+    <h1><%= t('.header') %></h1>
+    <%= render 'form', badge: @badge %>
+    <div class="mx-autos mt-4">
+      <%= link_to t("buttons.back"), admin_badges_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
