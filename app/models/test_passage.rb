@@ -21,14 +21,14 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    current_questions_percent >= SUCCES_TEST_PERCENT && timer?
+    current_questions_percent >= SUCCES_TEST_PERCENT && timeout?
   end
 
   def fail?
     !success?
   end
 
-  def timer?
+  def timeout?
     if test.timer > 0
       (created_at + test.timer.minutes) > (Time.current.in_time_zone 0000)
     else

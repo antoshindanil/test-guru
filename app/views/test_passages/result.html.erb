@@ -8,7 +8,7 @@
         <%= t(".passed_text") %>
       </p>
     <% else %>
-      <% if @test_passage.timer? %>
+      <% if @test_passage.timeout? %>
         <h1>
           <%= t(".failed_header", test: @test_passage.test.title) %>
         </h1>

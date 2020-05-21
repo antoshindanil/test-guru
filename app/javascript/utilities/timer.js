@@ -18,6 +18,8 @@ function startTimer(timer) {
     if (seconds > 0) {
       seconds -= 1;
       timer.textContent = fmtMSS(seconds);
+    } else {
+      window.location.href = window.location.href + "/result"
     }
   }, 1000);
 }
