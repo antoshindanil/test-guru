@@ -79,7 +79,11 @@ ru:
     result:
       passed_header: "Тест %{test} завершен!"
       passed_text: "Поздравляю, вы успешно прошли тест!"
-      correct: "Вы успешно ответили на %{percent}% вопросов"
+      timer_header: "Тест %{test} провален!"
+      timer_text: "К сожалению, вы не успели пройти тест!"
+      failed_header: "Тест %{test} провален!"
+      failed_text: "К сожалению, вы не прошли тест!"
+      percent: "Вы успешно ответили на %{percent}% вопросов"
       btn: "Назад к тестам"
     test_passage:
       passing: "Прохождение теста %{test}"

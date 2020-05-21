@@ -21,11 +21,19 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    current_questions_percent >= SUCCES_TEST_PERCENT
+    current_questions_percent >= SUCCES_TEST_PERCENT && timer?
   end
 
   def fail?
     !success?
+  end
+
+  def timer?
+    if test.timer > 0
+      (created_at + test.timer.minutes) > (Time.current.in_time_zone 0000)
+    else
+      true
+    end
   end
 
   def current_question_number
@@ -36,7 +44,7 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
-    self.passed = true
+    self.passed = true if self.success?
     save!
   end
 
