@@ -7,7 +7,12 @@
 </p>
 <hr class="mb-3 mt-4">
 <%= form_with(url: test_passage_path(@test_passage), local: true, method: :put) do |form| %>
-  <p class="mb-2"> <%= t(".choice") %> </p>
+  <div class="row container">
+    <p class="mb-2"> <%= t(".choice") %> </p>
+    <%= content_tag :span, @test_passage.test.timer, 
+        class: 'timer ml-auto',
+        data: { minutes: @test_passage.test.timer } %>
+  </div>
   <div class="row">
     <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
       <div class="col-sm-6">

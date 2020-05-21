@@ -8,15 +8,24 @@
         <%= t(".passed_text") %>
       </p>
     <% else %>
-      <h1>
-        <%= t(".failed_header", test: @test_passage.test.title) %>
-      </h1>
-      <p>
-        <%= t(".failed_text") %>
-      </p>
+      <% if @test_passage.timeout? %>
+        <h1>
+          <%= t(".failed_header", test: @test_passage.test.title) %>
+        </h1>
+        <p>
+          <%= t(".failed_text") %>
+        </p>
+      <% else %>
+        <h1>
+          <%= t(".timer_header", test: @test_passage.test.title) %>
+        </h1>
+        <p>
+          <%= t(".timer_text") %>
+        </p>
+      <% end %>
     <% end %>
     <b>
-      <%= t(".correct", percent: @test_passage.current_questions_percent.to_i)  %>
+      <%= t(".percent", percent: @test_passage.current_questions_percent.to_i)  %>
     </b>
     <% if @test_passage.user.badges.present? %>
       <p class="card-text"><%= t('.badges') %></p>
